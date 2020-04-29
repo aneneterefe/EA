@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+ "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- MySQL DB running on localhost -->
+		<property name="connection.url">jdbc:mysql://localhost:3306/cs544?serverTimezone=UTC</property>
+		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="connection.username">anene</property>
+		<property name="connection.password">Anebek9;</property>
+		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+		<!-- Use the Hibernate built-in pool for tests. -->
+		<property name="connection.pool_size">1</property>
+
+		<!-- Show all SQL DML executed by Hibernate -->
+		<property name="show_sql">true</property>
+		<property name="use_sql_comments">false</property>
+		<property name="hibernate.format_sql">false</property>
+		<!-- Always drop and recreate the database schema on startup -->
+		<property name="hbm2ddl.auto">create</property>
+
+		<!-- Mapping files -->
+		<mapping class="exercise_a_and_f.Employee" />
+		<mapping class="exercise_a_and_f.Department" />
+		<mapping class="exercise_a_and_f.Office" />
+		<mapping class="exercise_b.Book" />
+		<mapping class="exercise_b.Publisher" />
+		<mapping class="exercise_c.Student" />
+		<mapping class="exercise_c.Course" />
+		<mapping class="exercise_d_and_e.Customer" />
+		<mapping class="exercise_d_and_e.Reservation" />
+	</session-factory>
+</hibernate-configuration>
