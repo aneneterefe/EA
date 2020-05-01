@@ -15,6 +15,5 @@
 	</bean>
 	<bean id="customerDAO"  class="cs544.exercise13_1.CustomerDAO" />
 	<bean id="emailSender"  class="cs544.exercise13_1.EmailSender" />
-	<bean id="themethodcalladvice" class="cs544.exercise13_1.MethodCallsAdvice" />
 	<bean id="thelogadvice"  class="cs544.exercise13_1.LogAdvice" />
 </beans>
