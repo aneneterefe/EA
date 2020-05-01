@@ -47,7 +47,7 @@ public class App {
 			}
 		}catch (RuntimeException e) {
 			// TODO: handle exception
-			//HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().rollback();
+			HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().rollback();
 			e.printStackTrace();
 		}
 	}
