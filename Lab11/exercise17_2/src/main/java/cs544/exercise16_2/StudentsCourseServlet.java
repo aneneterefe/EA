@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
 public class StudentsCourseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -19,8 +22,10 @@ public class StudentsCourseServlet extends HttpServlet {
 		Student student = null;
 		
 		if (studentIdStr != null && studentIdStr.matches("\\d+")) {
+			ApplicationContext context =WebApplicationContextUtils.getRequiredWebApplicationContext(this.getServletContext());
 			studentid = Long.parseLong(studentIdStr);
-			StudentService studentService = new StudentService();
+			StudentService studentService = context.getBean("studentService", StudentService.class);
+			System.out.println(studentService);
 			student = studentService.getStudent(studentid);
 		}
 		
