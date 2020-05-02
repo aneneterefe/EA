@@ -2,7 +2,11 @@ package cs544.exercise16_1.bank;
 
 import java.util.Collection;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import cs544.exercise16_1.bank.domain.Account;
+import cs544.exercise16_1.bank.domain.AccountEntry;
 import cs544.exercise16_1.bank.domain.Customer;
 import cs544.exercise16_1.bank.service.AccountService;
 import cs544.exercise16_1.bank.service.IAccountService;
@@ -12,9 +16,8 @@ import cs544.exercise16_1.bank.service.IAccountService;
 public class App {
 	public static void main(String[] args) {
 		try {
-			//IAccountService accountService = new AccountService();
-			IAccountService accountService=new AccountService();
-			// create 2 accounts;
+			ApplicationContext context = new ClassPathXmlApplicationContext("springconfig.xml");
+			IAccountService accountService =context.getBean("accountService",IAccountService.class);
 			accountService.createAccount(1263862, "Frank Brown");
 			accountService.createAccount(4253892, "John Doe");
 			//use account 1;
